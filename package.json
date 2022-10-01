@@ -10,16 +10,55 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:vscode-markdown-memo.helloWorld"
+    "onCommand:vscode-markdown-memo.daily-report",
+    "onCommand:vscode-markdown-memo.new-memo",
+    "onCommand:vscode-markdown-memo.save-memo"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "vscode-markdown-memo.helloWorld",
-        "title": "Hello World"
+        "command": "vscode-markdown-memo.daily-report",
+        "title": "write daily report"
+      },
+      {
+        "command": "vscode-markdown-memo.new-memo",
+        "title": "create new memo"
+      },
+      {
+        "command": "vscode-markdown-memo.save-memo",
+        "title": "save memo"
       }
-    ]
+    ],
+    "keybindings":[
+      {
+        "command": "vscode-markdown-memo.daily-report",
+        "mac": "cmd-alt-r"
+      },
+      {
+        "command": "vscode-markdown-memo.new-memo",
+        "mac": "cmd-alt-n"
+      },
+      {
+        "command": "vscode-markdown-memo.save-memo",
+        "mac": "cmd-alt-s"
+      }
+    ],
+    "configuration": {
+      "title": "vscode-markdown-memo",
+      "properties": {
+        "vscode-markdown-memo.daily-report-path":{
+          "type":"string",
+          "default":"",
+          "description":"daily report file path"
+        },
+        "vscode-markdown-memo.memo-path":{
+          "type":"string",
+          "default":"",
+          "description": "memo file path"
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
